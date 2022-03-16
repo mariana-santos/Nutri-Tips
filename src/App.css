@@ -51,6 +51,7 @@ header{
   width: 100%;
   border-bottom: solid 1px #bbb;
   background-color: #76c893b9;
+  box-shadow: 0.5rem 0.1rem 30px #999;
 }
 
 li{
@@ -58,12 +59,16 @@ li{
   display: inline-block;
   margin: 1rem;
   padding: 0.5rem;
-  border-radius: 7px;
+  border-radius: 5px;
   transition: 0.3s;
   cursor: pointer;
 }
 
 li:hover{
+  background-color: #76C893;
+}
+
+.active{
   background-color: #76C893;
 }
 
@@ -119,7 +124,7 @@ h1{
 }
 
 .subtitle:hover{
-  animation: text-hover 1s;
+  animation: text-hover 0.5s;
 }
 
 .container-img{
@@ -127,16 +132,11 @@ h1{
 }
 
 @keyframes text-hover {
-  from{
-    top: 15%
-  }
-
-  to{
-    top: 0;
-  }
+  from{top: 15%}
+  to{top: 0;}
 }
 
-a{
+.btn {
   margin-top: 1rem;
   color: #333;
   text-decoration: none;
@@ -146,13 +146,40 @@ a{
   padding: 10px;
   align-items: center;
   justify-content: space-evenly;
-  border-radius: 7px;
+  border-radius: 5px;
   transition: 0.7s;
   font-size: 1rem;
   text-transform: uppercase;
   margin-top: 2rem;
 }
 
-a:hover{
+.btn:hover{
   box-shadow: inset 0 0 0 2em #4d8661;
+}
+
+.searchbar input, .searchbar button{
+  padding: 10px;
+  font-size: 1rem;
+  border: solid 1px #4d8661;
+}
+
+.searchbar input{
+  border-right: none;
+  border-radius: 5px 0 0 5px;
+  width: 350px;
+}
+
+.searchbar input:focus{
+  outline: none;
+}
+
+.searchbar button{
+  border-left: none;
+  border-radius: 0 5px 5px 0;
+  background-color: #76C893;
+  transition: 0.2s;
+}
+
+.searchbar button:hover, .searchbar button:active{
+  background-color: #4d8661;
 }

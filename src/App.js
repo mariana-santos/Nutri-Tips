@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { Component, useState } from 'react';
 import './App.css';
 import logo from './assets/logo.png'
 import 'font-awesome/css/font-awesome.min.css';
@@ -13,7 +13,7 @@ function Post(props){
         <div className='div-text'>
           <p className='subtitle'>
             {item.subtitulo}
-            <a href='#'>
+            <a href='#' className='btn'>
               <i className='fa fa-share'></i>
               Matéria completa
             </a>
@@ -24,12 +24,47 @@ function Post(props){
   );
 }
 
+function Header(props){
+  return(
+    <header>
+      <div className='logo'>
+        <img src={logo} alt='logo'/>
+        <h1 className='app-name'>Nutri tips</h1>
+      </div>
+
+      <div className='searchbar'>
+        <input 
+          placeholder='O que você está procurando?'
+          onChange={(ev)=> props.this.setState({search: ev.target.value})}
+          value={props.this.state.search}
+        />
+        <button onClick={props.this.FilterPosts}>
+          <i className='fa fa-search'></i>
+        </button>
+      </div>
+          
+      <nav>
+        <ul>
+          <a href='#'><li className='active'>Home</li></a>
+          <a href='#'><li>Artigos</li></a>
+          <a href='#'><li>Sobre nós</li></a>
+          <a href='#'><li>Contate-nos</li></a>
+        </ul>
+      </nav>
+    </header>
+  );
+}
+
 export default class App extends Component{
   constructor(props){
     super(props);
     this.state = {
-      posts: []
+      posts: [],
+      search: '',
+      postsFiltered: []
     }
+
+    this.FilterPosts = this.FilterPosts.bind(this);
   }
 
   componentDidMount(){
@@ -40,36 +75,51 @@ export default class App extends Component{
       .then((json)=> {
         let state = this.state
         state.posts = json
+        this.state.postsFiltered = json
         this.setState(state)
-        // console.log(this.state.posts)
       })
   }
+
+  FilterPosts(){
+    let posts = this.state.posts;
+    let postsFiltered = posts;
+    let search = this.state.search.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+    
+    // console.log(search)
+    // console.log('VEIO AQUI')
+
+    if(search !== ''){
+
+      function contains(post){
+        let titulo = (post.titulo).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+        let subtitulo = (post.subtitulo).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+
+        return titulo.includes(search) || subtitulo.includes(search)
+      }
+      console.log(posts.filter(contains))
+      postsFiltered = posts.filter(contains)
+      
+    }
+
+    this.setState(this.state.postsFiltered = postsFiltered);
+    
+    console.log(this.state.postsFiltered)
+    return postsFiltered;
+  }
+
   render(){
+
     return(
       <div className='container'>
 
-        <header>
-          <div className='logo'>
-            <img src={logo} alt='logo'/>
-            <h1 className='app-name'>Nutri tips</h1>
-          </div>
-          
-          <nav>
-            <ul>
-              <li>Home</li>
-              <li>Artigos</li>
-              <li>Sobre nós</li>
-              <li>Contate-nos</li>
-            </ul>
-          </nav>
+        <Header this={this}/>
 
-        </header>
-
-        {this.state.posts.map((item) =>{
+        {this.state.postsFiltered.map((item) =>{
           return(
             <Post item={item} />
           );
         })}
+
       </div>
     );
   }
