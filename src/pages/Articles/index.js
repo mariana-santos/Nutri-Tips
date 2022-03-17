@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import Header from "../../Components/Header";
 import Article from "../../Components/Article";
+import SearchBar from '../../Components/SearchBar'
 
 export default class Articles extends Component {
     constructor(props){
@@ -29,9 +30,12 @@ export default class Articles extends Component {
         return(
           <div className='container'>
             <Header/>
+
+            <SearchBar/>
+
             {this.state.posts.map((item) =>{
               return(
-                <Article item={item} />
+                <Article item={item} size="medium"/>
               );
             })}
           </div>

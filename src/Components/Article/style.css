@@ -5,6 +5,11 @@
     margin: 2rem 0;
     position: relative;
   }
+
+.img-big{
+  width: 50vw;
+  height: 75vh;
+}
   
   .div-text{
     box-sizing: border-box;
@@ -18,6 +23,14 @@
     background-color: rgba(0, 0, 0, 0.5);
     transition: opacity 0.2s;
     opacity: 0;
+  }
+
+  .div-text-big{
+    padding: 2rem;
+  }
+
+  .div-text-big h1{
+    font-size: 3rem;
   }
   
   .div-text:hover{
@@ -35,6 +48,13 @@
     color: white;
     padding: 2rem;
     font-size: 1.3rem;
+  }
+
+  .subtitle-big{
+    position: static;
+    height: auto;
+    color: #333;
+    padding: 0;
   }
   
   .subtitle:hover{
@@ -69,4 +89,20 @@
   
   .btn:hover{
     box-shadow: inset 0 0 0 2em #4d8661;
+  }
+
+  a{
+    cursor: pointer;
+  }
+
+  article{
+    width: 700px;
+    border-bottom: solid 1px #aaa;
+    margin-top: 2rem;
+    align-items: center;
+  }
+
+  .big{
+    width: 90vw;
+    display: flex;
   }

@@ -1,0 +1,30 @@
+.searchbar input, .searchbar button{
+    padding: 10px;
+    font-size: 1rem;
+    border: solid 1px #4d8661;
+  }
+  
+  .searchbar input{
+    border-right: none;
+    border-radius: 5px 0 0 5px;
+    width: 650px;
+  }
+  
+  .searchbar input:focus{
+    outline: none;
+  }
+  
+  .searchbar button{
+    border-left: none;
+    border-radius: 0 5px 5px 0;
+    background-color: #76C893;
+    transition: 0.2s;
+  }
+  
+  .searchbar button:hover, .searchbar button:active{
+    background-color: #4d8661;
+  }
+
+  .searchbar{
+      margin-top: 3rem;
+  }

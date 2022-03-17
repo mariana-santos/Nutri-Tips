@@ -32,7 +32,7 @@ export default class App extends Component{
         <Header/>
         {this.state.posts.map((item) =>{
           return(
-            <Article item={item} />
+            <Article item={item} size="big"/>
           );
         })}
       </div>
