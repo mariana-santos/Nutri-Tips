@@ -4,7 +4,6 @@ import './style.css'
 
 export default function Header() {
   return (
-    <div>
       <header>
        <div className='logo'>
          <img src={logo} alt='logo'/>
@@ -21,7 +20,5 @@ export default function Header() {
         </nav>
         <Outlet/>
      </header>
-    </div>
-    
   );
 }

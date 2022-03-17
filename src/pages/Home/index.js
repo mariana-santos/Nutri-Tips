@@ -1,6 +1,5 @@
-import { Component, useState } from 'react';
+import { Component } from 'react';
 import './index.css';
-import logo from '../../assets/logo.png'
 import 'font-awesome/css/font-awesome.min.css';
 
 // function Post(props){
@@ -67,18 +66,18 @@ export default class Home extends Component{
     // this.FilterPosts = this.FilterPosts.bind(this);
   }
 
-//   componentDidMount(){
-//     const url = 'https://sujeitoprogramador.com/rn-api/?api=posts'
+  componentDidMount(){
+    const url = 'https://sujeitoprogramador.com/rn-api/?api=posts'
 
-//     fetch(url)
-//       .then((res)=> res.json())
-//       .then((json)=> {
-//         let state = this.state
-//         state.posts = json
-//         this.state.postsFiltered = json
-//         this.setState(state)
-//       })
-//   }
+    fetch(url)
+      .then((res)=> res.json())
+      .then((json)=> {
+        let state = this.state
+        state.posts = json
+        this.state.postsFiltered = json
+        this.setState(state)
+      })
+  }
 
 //   FilterPosts(){
 //     let posts = this.state.posts;
