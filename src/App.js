@@ -8,8 +8,10 @@ export default class App extends Component{
     super(props);
     this.state = {
       posts: [],
+      main: {},
       search: '',
-      postsFiltered: []
+      postsFiltered: [],
+      smallposts: []
     }
   }
 
@@ -21,7 +23,9 @@ export default class App extends Component{
       .then((json)=> {
         let state = this.state
         state.posts = json
+        state.main = json[0]
         this.state.postsFiltered = json
+        state.smallposts = [json[1], json[2], json[3], json[4]]
         this.setState(state)  
       })
   }
@@ -30,11 +34,17 @@ export default class App extends Component{
     return(
       <div className='container'>
         <Header/>
-        {this.state.posts.map((item) =>{
-          return(
-            <Article item={item} size="big"/>
-          );
-        })}
+        
+        <Article item={this.state.main} size="big"/>
+
+        <div className='row'>
+          {this.state.smallposts.map(item => {
+            return(
+            <Article item={item} size="small"/>
+            );
+          })}
+        </div>
+
       </div>
     );
   }

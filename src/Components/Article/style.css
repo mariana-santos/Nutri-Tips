@@ -4,11 +4,22 @@
     object-fit: cover;
     margin: 2rem 0;
     position: relative;
+    transition: 0.2s;
   }
+
+.img:hover{
+  opacity: 0.8;
+}
 
 .img-big{
   width: 50vw;
   height: 75vh;
+}
+
+.img-small{
+  width: 20vw;
+  height: 20vw;
+  margin-bottom: 0;
 }
   
   .div-text{
@@ -100,9 +111,20 @@
     border-bottom: solid 1px #aaa;
     margin-top: 2rem;
     align-items: center;
+    cursor: pointer;
   }
 
   .big{
     width: 90vw;
     display: flex;
+  }
+
+  .small{
+    width: 20vw;
+    height: 20vw;
+  }
+
+  .small h1{
+    font-size: 1.3rem;
+    height: 7vh;
   }

@@ -9,6 +9,13 @@ export default function SearchBar (props){
                 // value={props.this.state.search}
             />
             {/* <button onClick={props.this.FilterPosts}> */}
+
+            <select>
+                <option>Todos</option>
+                <option>Dieta</option>
+                <option>Emagrecimento</option>
+            </select>
+
             <button>
                 <i className='fa fa-search'></i>
             </button>

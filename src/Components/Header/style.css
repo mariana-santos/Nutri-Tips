@@ -8,7 +8,7 @@
   }
   
   .logo img{
-    width: 70px;
+    width: 60px;
   }
   
   .logo:hover{
@@ -26,7 +26,7 @@
   
   header{
     display: flex;
-    padding: 2rem;
+    padding: 1rem;
     align-items: center;
     justify-content: space-between;
     width: 100%;

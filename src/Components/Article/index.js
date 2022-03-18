@@ -24,19 +24,10 @@ function Medium(props){
 function Small(props){
     let item = props.item
     return(
-        <article key={item.id}>
+        <article key={item.id} className="small">
             <h1>{item.titulo}</h1>
             <div className='container-img'>
-                <img className="img-small" src={item.capa} alt={item.titulo}/>
-                <div className='div-text'>
-                    <p className='subtitle'>
-                        {item.subtitulo}
-                        <a className='btn'>
-                            <i className='fa fa-share'></i>
-                            Matéria completa
-                        </a>
-                    </p>
-                </div>
+                <img className="img img-small" src={item.capa} alt={item.titulo}/>
             </div>
         </article>
     );
