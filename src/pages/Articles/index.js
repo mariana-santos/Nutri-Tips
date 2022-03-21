@@ -3,37 +3,14 @@ import Header from "../../Components/Header";
 import Article from "../../Components/Article";
 import './style.css'
 
-function SearchBar (props){
-  return(
-      <div className='searchbar'>
-          <input 
-              placeholder='O que você está procurando?'
-              // onChange={(ev)=> props.this.setState({search: ev.target.value})}
-              // value={props.this.state.search}
-          />
-          {/* <button onClick={props.this.FilterPosts}> */}
-
-          <select>
-              <option>Todos</option>
-              <option>Dieta</option>
-              <option>Emagrecimento</option>
-          </select>
-
-          <button>
-              <i className='fa fa-search'></i>
-          </button>
-    </div>
-  );
-
-}
-
 export default class Articles extends Component {
     constructor(props){
         super(props);
         this.state = {
           posts: [],
           search: '',
-          postsFiltered: []
+          postsFiltered: [],
+          select: 'Todos'
         }
 
         this.FilterPosts = this.FilterPosts.bind(this)
@@ -47,45 +24,59 @@ export default class Articles extends Component {
           .then((json)=> {
             let state = this.state
             state.posts = json
-            this.state.postsFiltered = json
-            this.setState(state)  
+            state.postsFiltered = json
+            state.postsFiltered[0].categoria = 'Dieta'
+            this.setState(state)
           })
+      }
+
+      componentDidUpdate(){
+        let closebtn = document.getElementById('closebtn');
+
+        this.state.search !== '' ? closebtn.style.visibility = 'visible' : 
+        closebtn.style.visibility = 'hidden'
       }
 
       FilterPosts(){
 
-        console.log('VEIOOOO')
-
         let posts = this.state.posts;
         let postsFiltered = posts;
+        let categoria = this.state.select;
         let search = this.state.search.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
         let searchp = document.getElementById('search');
 
         if(search !== ''){
 
-          function contains(post){
-            let titulo = (post.titulo).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
-            let subtitulo = (post.subtitulo).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+          if(categoria === 'Todos'){
+            function contains(post){
+              let titulo = (post.titulo).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+              let subtitulo = (post.subtitulo).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
 
-            return titulo.includes(search) || subtitulo.includes(search)
+              return titulo.includes(search) || subtitulo.includes(search)
+            }
+            postsFiltered = posts.filter(contains)
           }
-          console.log(posts.filter(contains))
-          postsFiltered = posts.filter(contains)
 
-          searchp.innerText = `Mostrando ${postsFiltered.length} resultado(s) para ${search}`
-          
+          else{
+            function contains(post){
+              let titulo = (post.titulo).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+              let subtitulo = (post.subtitulo).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+
+              return ((titulo.includes(search) || subtitulo.includes(search)) && post.categoria === categoria)
+            }
+            
+            postsFiltered = posts.filter(contains)
+          }
+
+          // console.log(posts.filter(contains))
+          searchp.innerText = `Mostrando ${postsFiltered.length} resultado(s) para ${search} em ${categoria}`
         }
-
         else{
-          this.setState(this.state.postsFiltered = posts);
           searchp.innerText = ``
         }
 
         this.setState(this.state.postsFiltered = postsFiltered);
-        
-        // console.log(this.state.postsFiltered)
         return postsFiltered;
-
       }
     
       render(){
@@ -94,25 +85,40 @@ export default class Articles extends Component {
             <Header/>
 
             <div className='searchbar'>
+
               <input 
                   placeholder='O que você está procurando?'
                   ref={(ev)=> this._searchInput = ev}
                   onChange={(ev) => this.setState({search: ev.target.value})}
                   value={this.state.search}
-              />
+              >
+              </input>
 
-              <select>
-                  <option>Todos</option>
-                  <option>Dieta</option>
-                  <option>Emagrecimento</option>
+              <button className="close" 
+                onClick={() => {
+                  let posts = this.state.posts;
+                  document.getElementById('search').innerHTML = '';
+                  this.setState({search: '', postsFiltered: posts});
+                }}>
+                  <i className='fa fa-close' id="closebtn"></i>
+              </button>
+
+              <select
+                value={this.state.select}
+                onChange={(ev) => {this.setState({select: ev.target.value})}}>
+                  <option value='Todos'>Todos</option>
+                  <option value='Dieta'>Dieta</option>
+                  <option value='Emagrecimento'>Emagrecimento</option>
+                  <option value='Dicas'>Dicas</option>
               </select>
 
               <button onClick={this.FilterPosts}>
                   <i className='fa fa-search'></i>
               </button>
 
-              <p id="search"></p>
             </div>
+
+            <p id="search"></p>
 
 
             {this.state.postsFiltered.map((item) =>{
