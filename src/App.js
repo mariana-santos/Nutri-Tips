@@ -23,9 +23,9 @@ export default class App extends Component{
       .then((json)=> {
         let state = this.state
         state.posts = json
-        state.main = json[0]
-        this.state.postsFiltered = json
-        state.smallposts = [json[1], json[2], json[3], json[4]]
+        state.main = json[3]
+        state.postsFiltered = json
+        state.smallposts = [json[0], json[1], json[2], json[4]]
         this.setState(state)  
       })
   }
@@ -40,7 +40,7 @@ export default class App extends Component{
         <div className='row'>
           {this.state.smallposts.map(item => {
             return(
-            <Article item={item} size="small"/>
+              <Article item={item} size="small"/>
             );
           })}
         </div>

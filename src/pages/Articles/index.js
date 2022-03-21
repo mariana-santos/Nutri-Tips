@@ -72,7 +72,13 @@ export default class Articles extends Component {
           searchp.innerText = `Mostrando ${postsFiltered.length} resultado(s) para ${search} em ${categoria}`
         }
         else{
-          searchp.innerText = ``
+
+          if (categoria !== 'Todos') 
+          postsFiltered = postsFiltered.filter((post)=>{
+            return post.categoria === categoria
+          })
+
+          searchp.innerText = `Mostrando ${postsFiltered.length} resultado(s) para ${categoria}`
         }
 
         this.setState(this.state.postsFiltered = postsFiltered);
