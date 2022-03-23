@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import Header from "../../Components/Header";
+import Footer from '../../Components/Footer';
 import Article from "../../Components/Article";
 import './style.css'
 
@@ -126,12 +127,13 @@ export default class Articles extends Component {
 
             <p id="search"></p>
 
-
             {this.state.postsFiltered.map((item) =>{
               return(
                 <Article item={item} key={item.id} size="medium"/>
               );
             })}
+
+            <Footer />
           </div>
         );
       }

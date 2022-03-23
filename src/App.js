@@ -1,5 +1,6 @@
 import './App.css'
 import Header from "./Components/Header";
+import Footer from './Components/Footer'
 import React, { Component } from 'react';
 import Article from './Components/Article';
 
@@ -44,6 +45,8 @@ export default class App extends Component{
             );
           })}
         </div>
+
+        <Footer/>
 
       </div>
     );

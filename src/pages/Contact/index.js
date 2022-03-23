@@ -2,8 +2,8 @@ import React, {Component} from "react";
 import Header from "../../Components/Header";
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react'
 import './styles.css'
-import { Wrapper, Status } from "@googlemaps/react-wrapper";
 import { TextField } from '@mui/material'
+import Footer from "../../Components/Footer";
 
 export class Contact extends Component {
     constructor(props){
@@ -53,6 +53,8 @@ export class Contact extends Component {
 
                     </form>
                 </div>
+
+                <Footer />
             </div>
         );
     }  

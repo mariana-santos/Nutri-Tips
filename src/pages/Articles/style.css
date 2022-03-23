@@ -31,6 +31,7 @@
     background-color: #76C893;
     transition: 0.2s;
     width: 50px;
+    margin: 0 !important;
   }
   
   .searchbar button:hover, .searchbar button:active{
