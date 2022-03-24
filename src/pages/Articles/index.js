@@ -3,6 +3,8 @@ import Header from "../../Components/Header";
 import Footer from '../../Components/Footer';
 import Article from "../../Components/Article";
 import './style.css'
+import icon from '../../assets/not-found.svg'
+import ReactLoading from 'react-loading'
 
 export default class Articles extends Component {
     constructor(props){
@@ -11,7 +13,8 @@ export default class Articles extends Component {
           posts: [],
           search: '',
           postsFiltered: [],
-          select: 'Todos'
+          select: 'Todos',
+          isLoading: true,
         }
 
         this.FilterPosts = this.FilterPosts.bind(this)
@@ -27,6 +30,7 @@ export default class Articles extends Component {
             state.posts = json
             state.postsFiltered = json
             state.postsFiltered[0].categoria = 'Dieta'
+            state.isLoading = false
             this.setState(state)
           })
       }
@@ -83,7 +87,7 @@ export default class Articles extends Component {
         }
 
         this.setState(this.state.postsFiltered = postsFiltered);
-        return postsFiltered;
+        console.log(postsFiltered)
       }
     
       render(){
@@ -91,49 +95,66 @@ export default class Articles extends Component {
           <div className='container'>
             <Header/>
 
-            <div className='searchbar'>
+            {this.state.isLoading ? 
+            
+            <div className="container-spin">
+              <ReactLoading type='bubbles' color='#333'/>
+            </div> : 
+            
+            <><div className='searchbar'>
 
-              <input 
-                  placeholder='O que você está procurando?'
-                  ref={(ev)=> this._searchInput = ev}
-                  onChange={(ev) => this.setState({search: ev.target.value})}
-                  value={this.state.search}
-              >
-              </input>
+            <input 
+                placeholder='O que você está procurando?'
+                ref={(ev)=> this._searchInput = ev}
+                onChange={(ev) => this.setState({search: ev.target.value})}
+                value={this.state.search}
+            >
+            </input>
 
-              <button className="close" 
-                onClick={() => {
-                  let posts = this.state.posts;
-                  document.getElementById('search').innerHTML = '';
-                  this.setState({search: '', postsFiltered: posts});
-                }}>
-                  <i className='fa fa-close' id="closebtn"></i>
-              </button>
+            <button className="close" 
+              onClick={() => {
+                let posts = this.state.posts;
+                document.getElementById('search').innerHTML = '';
+                this.setState({search: '', postsFiltered: posts});
+              }}>
+                <i className='fa fa-close' id="closebtn"></i>
+            </button>
 
-              <select
-                value={this.state.select}
-                onChange={(ev) => {this.setState({select: ev.target.value})}}>
-                  <option value='Todos'>Todos</option>
-                  <option value='Dieta'>Dieta</option>
-                  <option value='Emagrecimento'>Emagrecimento</option>
-                  <option value='Dicas'>Dicas</option>
-              </select>
+            <select
+              value={this.state.select}
+              onChange={(ev) => {this.setState({select: ev.target.value})}}>
+                <option value='Todos'>Todos</option>
+                <option value='Dieta'>Dieta</option>
+                <option value='Emagrecimento'>Emagrecimento</option>
+                <option value='Dicas'>Dicas</option>
+            </select>
 
-              <button onClick={this.FilterPosts}>
-                  <i className='fa fa-search'></i>
-              </button>
+            <button onClick={this.FilterPosts}>
+                <i className='fa fa-search'></i>
+            </button>
 
-            </div>
+          </div>
 
-            <p id="search"></p>
+          <p id="search"></p></>
+            
+          }
 
-            {this.state.postsFiltered.map((item) =>{
-              return(
-                <Article item={item} key={item.id} size="medium"/>
-              );
-            })}
+            {}
 
-            <Footer />
+            {this.state.postsFiltered.length === 0 ?
+              <div className="not-found">
+                <p style={{fontSize: '1.5rem'}}> Nenhum resultado encontrado</p>
+                <img src={icon}/>
+              </div>
+              :
+              this.state.postsFiltered.map((item) =>{
+                return(
+                  <Article item={item} key={item.id} size="medium"/>
+                );
+              })
+            }
+
+            <Footer/>
           </div>
         );
       }

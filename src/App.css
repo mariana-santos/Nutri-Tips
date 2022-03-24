@@ -18,6 +18,12 @@ body{
   align-items: center;
 }
 
+.container-spin{
+  height: 75vh;
+  align-items: center;
+  display: flex;
+}
+
 h1{
   margin: 0;
   text-shadow: 1px 1px 2px #555;

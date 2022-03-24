@@ -17,7 +17,7 @@ export class Contact extends Component {
                 <Header/>
                 <div className="container-row">
 
-                    <form>
+                    <form className="contato">
                         <h1>Entre em contato!</h1>
 
                         <TextField className="field" label="Email" variant="outlined" />

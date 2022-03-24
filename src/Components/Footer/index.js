@@ -13,7 +13,7 @@ export default function Footer() {
          <ul>
            <li className="social-media">
              <h2>Siga-nos: </h2>
-              <i className="fa fa-instagram"></i>
+              <i className="fa fa-instagram i-footer"></i>
               <i className="fa fa-facebook"></i>
               <i className="fa fa-twitter"></i>
               <i className="fa fa-youtube"></i>
