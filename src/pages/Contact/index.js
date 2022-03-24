@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import Header from "../../Components/Header";
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react'
+import { GoogleMapReact } from 'google-map-react'
 import './styles.css'
 import { TextField } from '@mui/material'
 import Footer from "../../Components/Footer";
@@ -8,12 +9,6 @@ import Footer from "../../Components/Footer";
 export class Contact extends Component {
     constructor(props){
         super(props);
-        this.state = {
-            marcador: {
-                lat: -23.5461068, 
-                lng: -46.4999808
-            }
-        }
     }
 
     render(){
@@ -21,22 +16,6 @@ export class Contact extends Component {
             <div>
                 <Header/>
                 <div className="container-row">
-                    
-                    <div style={{
-                            position: "relative",
-                            width: "40%",
-                            height: "70vh"}} 
-                        className="map">
-
-                        <Map google={this.props.google} 
-                            zoom={13}
-                            initialCenter={{ lat: 40.7812, lng: -73.9665}}
-                            disableDefaultUI= {true}>
-
-                            <Marker position={this.state.marcador} />
-
-                        </Map>
-                    </div>
 
                     <form>
                         <h1>Entre em contato!</h1>

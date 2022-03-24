@@ -2,6 +2,7 @@
 
 body{
   background-color: #e1faea;
+  overflow-x: hidden;
 }
 
 * {

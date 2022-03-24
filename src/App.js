@@ -38,7 +38,7 @@ export default class App extends Component{
         
         <Article item={this.state.main} size="big"/>
 
-        <div className='row'>
+        <div className='row' style={{marginBottom: '7rem'}}>
           {this.state.smallposts.map(item => {
             return(
               <Article item={item} size="small"/>

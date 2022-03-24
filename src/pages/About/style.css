@@ -1,0 +1,20 @@
+.header-img{
+    width: 100vw;
+    height: 50vh;
+    object-fit: cover;
+}
+
+.container-about{
+    margin: 0 auto;
+    width: 45vw;
+}
+
+.container-redes{
+    
+}
+
+.container-about p{
+    text-align: justify;
+    letter-spacing: 1.5px;
+    font-size: 1.2rem;
+}
