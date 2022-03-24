@@ -3,6 +3,15 @@ import Header from "../../Components/Header";
 import Footer from '../../Components/Footer'
 import './style.css'
 
+function RedeLink(props){
+    return(
+        <div>
+            <i className={`fa fa-${props.rede}`}></i>
+                <p>{props.username}</p>
+        </div>
+    );
+}
+
 export default class About extends Component {
     render(){
         return(
@@ -22,12 +31,16 @@ export default class About extends Component {
                     </div>
 
                     <div className="container-redes">
-                        <h1 style={{fontSize: '2rem', marginTop: '2rem'}}>Siga a nossas redes! </h1>
+                        <h1 style={{fontSize: '2rem', marginTop: '2rem'}}>Siga nossas redes! </h1>
+                        <p>Acompanhe nossos canais para ter acesso a outras dicas sobre alimentação, saúde, bem-estar e receitas</p>
+
+                        <RedeLink rede='instagram' username='@nutri_tips'/>
+                        <RedeLink rede='facebook' username='Nutri Tips'/>
+                        <RedeLink rede='twitter' username='@nutri_tips'/>
+                        <RedeLink rede='linkedin' username='Nutri tips' />
 
                     </div>
                 </div>
-
-                
 
                 <Footer />
             </div>
