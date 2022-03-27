@@ -15,7 +15,6 @@ export default function Header() {
            <li><Link to="/" className="link">Home</Link></li>
            <li><Link to="/artigos" className="link">Artigos</Link></li>
            <li><Link to="/sobre" className="link">Sobre nós</Link></li>
-           <li><Link to="/contato" className="link">Contate-nos</Link></li>
           </ul>
         </nav>
         <Outlet/>
