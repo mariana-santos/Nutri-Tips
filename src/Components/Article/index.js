@@ -6,7 +6,7 @@ function Medium(props){
         <article key={item.id}>
             <h1>{item.titulo}</h1>
             <div className='container-img'>
-                <img className="img" src={item.capa} alt={item.titulo}/>
+                <img className="img img-medium" src={item.capa} alt={item.titulo}/>
                 <div className='div-text'>
                     <p className='subtitle'>
                         {item.subtitulo}

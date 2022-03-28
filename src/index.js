@@ -5,7 +5,6 @@ import App from './App';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import About from './pages/About'
-import Home from './pages/Home'
 import Articles from './pages/Articles'
 
 ReactDOM.render(
