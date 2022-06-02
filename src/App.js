@@ -4,6 +4,7 @@ import Footer from './Components/Footer'
 import React, { Component } from 'react';
 import Article from './Components/Article';
 import ReactLoading from 'react-loading';
+import 'font-awesome/css/font-awesome.min.css';
 
 export default class App extends Component{
   constructor(props){
@@ -14,7 +15,8 @@ export default class App extends Component{
       main: {},
       search: '',
       postsFiltered: [],
-      smallposts: []
+      smallposts1: [],
+      smallposts2: []
     }
   }
 
@@ -28,7 +30,8 @@ export default class App extends Component{
         state.posts = json
         state.main = json[3]
         state.postsFiltered = json
-        state.smallposts = [json[0], json[1], json[2], json[4]]
+        state.smallposts1 = [json[0], json[1]]
+        state.smallposts2 = [json[2], json[4]]
         state.isLoading = false;
         this.setState(state)
       })
@@ -46,12 +49,23 @@ export default class App extends Component{
           
           <><Article item={this.state.main} size="big"/>
 
-          <div className='row' style={{marginBottom: '7rem'}}>
-            {this.state.smallposts.map(item => {
-              return(
-                <Article item={item} size="small"/>
-              );
-            })}
+          <div className='row'>
+            <div>
+              {this.state.smallposts1.map(item => {
+                return(
+                  <Article item={item} size="small"/>
+                );
+              })}
+            </div>
+
+            <div>
+              {this.state.smallposts2.map(item => {
+                return(
+                  <Article item={item} size="small"/>
+                );
+              })}
+            </div>
+            
           </div></>}
 
         <Footer/>

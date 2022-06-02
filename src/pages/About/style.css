@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Poppins:wght@200;400;500&display=swap');
+
 .header-img{
     width: 100vw;
     height: 50vh;
@@ -7,6 +9,15 @@
 .container-about{
     margin: 0 auto;
     width: 50%;
+}
+
+.container-row{
+    display: flex;
+    flex-direction: row;
+}
+
+.container-about p{
+    font-family: 'Poppins', sans-serif;
 }
 
 .container-redes{
@@ -52,4 +63,4 @@
 
 .fa-twitter{background-color: #1DA1F2}
 
-.fa-linkedin{background-color: #0077b5;}
+.fa-linkedin{background-color: #0077b5}

@@ -13,7 +13,7 @@
 
 .img-big{
   width: 50vw;
-  height: 75vh;
+  height: 35vw;
 }
 
 .img-small{
@@ -55,7 +55,6 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    top: 0;
     font-weight: bolder;
     color: white;
     padding: 2rem;
@@ -70,7 +69,7 @@
   }
   
   .subtitle:hover{
-    animation: text-hover 0.5s;
+    animation: text-hover 0.4s;
   }
   
   .container-img{
@@ -78,7 +77,7 @@
   }
   
   @keyframes text-hover {
-    from{top: 15%}
+    from{top: 8%}
     to{top: 0;}
   }
   
@@ -123,14 +122,14 @@
 
   .small{
     width: 20vw;
-    height: 20vw;
+    height: 30vw;
+    border-bottom: none;
   }
 
   .small h1{
     font-size: 1.3rem;
     height: 7vh;
   }
-
   .tags{
     border: solid 1px #4d8661;
     display: inline-block;
@@ -141,4 +140,115 @@
 
   .tags svg{
     margin-right: 0.5rem;
+  }
+
+  @media screen and (max-width: 750px){
+    article{
+      width: 80%;
+    }
+
+    .container-img img{
+      width: 100%;
+      height: 300px;
+    }
+
+    .div-text{
+      width: 100%;
+      height: 300px;
+    }
+
+  }
+
+  @media screen and (max-width: 1300px){
+    .div-text-big h1{
+      font-size: 2rem;
+    }
+
+  }
+
+  @media screen and (max-width: 1000px){
+    .subtitle-big{
+      font-size: 1rem;
+    }
+  }
+
+  @media screen and (max-width: 950px){
+    article{
+      flex-direction: column;
+    }
+
+    .div-text-big{
+      padding: 0;
+    }
+
+    .img-big{
+      width: 90vw;
+    }
+
+    .small h1{
+      font-size: 1.2rem;
+      height: 4vh !important;
+    }
+
+    .small {
+      width: 45%;
+    }
+
+    .img-small{
+      width: 100%;
+    }
+
+    .row{
+      flex-direction: column;
+    }
+
+    .row div{
+      width: 100%;
+    }
+  }
+
+  @media screen and (max-width: 750px){
+    .img-big{
+      width: 90vw !important;
+    }
+
+    .img-small{
+      width: 100% !important;
+      height: 20vw !important;
+    }
+  }
+
+  @media screen and (max-width: 990px){
+    .small h1{
+      height: 10vh;
+    }
+  }
+
+  @media screen and (max-width: 915px){
+    .small h1{
+      font-size: 1.1rem;
+    }
+  }
+
+  @media screen and (max-width: 600px){
+    .row div{
+      flex-direction: column;
+    }
+
+    .small{
+      width: 100%;
+      height: auto;
+    }
+
+    .small h1{
+      height: auto !important;
+    }
+
+    .img-small{
+      height: 20vh !important;
+    }
+
+    .subtitle{
+      font-size: 1rem;
+    }
   }

@@ -35,3 +35,10 @@ h1{
   width: 90vw;
   justify-content: space-between;
 }
+
+.row div{
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+  width: 50%;
+}

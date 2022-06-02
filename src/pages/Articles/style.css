@@ -69,6 +69,8 @@
     align-self: flex-start;
   }
 
-  option:hover{
-    background-color: #76C893;
+  @media screen and (max-width: 750px){
+    .searchbar{
+      width: 80%;
+    }
   }
