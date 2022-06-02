@@ -18,6 +18,7 @@ export default class Articles extends Component {
         }
 
         this.FilterPosts = this.FilterPosts.bind(this)
+        this.handleKeypress = this.handleKeypress.bind(this)
       }
     
       componentDidMount(){
@@ -41,6 +42,14 @@ export default class Articles extends Component {
         this.state.search !== '' ? closebtn.style.visibility = 'visible' : 
         closebtn.style.visibility = 'hidden'
       }
+
+      handleKeypress = e => {
+        //it triggers by pressing the enter key
+        console.log(e.keyCode)
+        if (e.keyCode === 13) {
+          this.FilterPosts();
+        }
+      };
 
       FilterPosts(){
 
@@ -108,6 +117,7 @@ export default class Articles extends Component {
                 ref={(ev)=> this._searchInput = ev}
                 onChange={(ev) => this.setState({search: ev.target.value})}
                 value={this.state.search}
+                onKeyDown={this.handleKeypress}
             >
             </input>
 

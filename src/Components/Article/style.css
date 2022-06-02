@@ -2,7 +2,7 @@
     width: 700px;
     height: 400px;
     object-fit: cover;
-    margin: 2rem 0;
+    margin-bottom: 2rem;
     position: relative;
     transition: 0.2s;
   }
@@ -20,11 +20,12 @@
   width: 20vw;
   height: 20vw;
   margin-bottom: 0;
+  margin-top: 2rem;
 }
   
   .div-text{
     box-sizing: border-box;
-    top: 2rem;
+    top: 0;
     position: absolute;
     display: flex;
     width: 700px;
@@ -128,4 +129,16 @@
   .small h1{
     font-size: 1.3rem;
     height: 7vh;
+  }
+
+  .tags{
+    border: solid 1px #4d8661;
+    display: inline-block;
+    padding:  5px 10px;
+    border-radius: 25px;
+    margin-top: 1rem;
+  }
+
+  .tags svg{
+    margin-right: 0.5rem;
   }
