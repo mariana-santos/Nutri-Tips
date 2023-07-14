@@ -5,10 +5,10 @@ import './style.css'
 export default function Header() {
   return (
       <header>
-       <div className='logo'>
+       <Link to='/' className='logo'>
          <img src={logo} alt='logo'/>
          <h1 className='app-name'>Nutri Tips</h1>
-       </div>
+       </Link>
 
        <nav>
          <ul>
