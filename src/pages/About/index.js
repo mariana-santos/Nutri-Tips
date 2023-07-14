@@ -21,9 +21,9 @@ export default class About extends Component {
                 <img src="https://assets.uninove.br/headers/Nutri%C3%A7%C3%A3o-imagem-principal.jpg?mtime=20201022144043&focal=none"
                     className="header-img" alt=""/>
 
-                <div className="container-row">
+                <div className="container-row" id="sobre">
                     <div className="container-about">
-                        <h1 style={{fontSize: '3rem', marginTop: '2rem'}}>Como a Nutri Tips nasceu? </h1>
+                        <h1>Como a Nutri Tips nasceu? </h1>
 
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nisl quam, vulputate ut interdum ut, vehicula nec ante. Vivamus non nisi ornare, vestibulum elit at, ullamcorper tellus. Aliquam posuere iaculis scelerisque. Mauris lacus lacus, pretium eu arcu ornare, scelerisque tempus lectus. </p>
 

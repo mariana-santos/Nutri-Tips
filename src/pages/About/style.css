@@ -64,3 +64,37 @@
 .fa-twitter{background-color: #1DA1F2}
 
 .fa-linkedin{background-color: #0077b5}
+
+#sobre h1{
+    font-size: 3rem;
+    margin-top: 2rem;
+}
+
+@media screen and (max-width: 768px) {
+
+    .header-img{
+        width: 100vw;
+        height: 25vh;
+        object-fit: cover;
+    }
+
+    #sobre{
+        flex-direction: column;
+    }
+    .container-about, .container-redes{
+        width: 100%;
+        padding: 0 2em;
+    }
+
+    #sobre h1{
+        font-size: 2rem;
+    }
+
+    .container-redes di {
+        font-size: 1.5em;
+    }
+
+    .container-redes i{
+        width: 1.5em;
+    }
+}

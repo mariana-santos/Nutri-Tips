@@ -24,13 +24,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 40%;
+    width: 100%;
   }
 
   .social-media i {
     margin-left: 0.5rem;
     padding: 0.5rem;
-    background-color: #76C893;
+    background: #76C893;
     border-radius: 50%;
     width: 2rem;
     height: 2rem;
@@ -47,9 +47,37 @@
     background-color: transparent;
   }
 
-  ul{
-    width: 100%;
+  footer ul{
+    width: 40%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    padding: 0;
+  }
+
+  @media screen and (max-width: 768px){
+    footer ul, footer{
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .logo h1{
+      text-align: center;
+    }
+
+    .social-media{
+      width: 100%;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 1em;
+    }
+
+    .social-media h2{
+      width: 100%;
+      text-align: center;
+    }
+
+    footer li{
+      margin: 0;
+    }
   }

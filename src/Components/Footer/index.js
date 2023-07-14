@@ -19,10 +19,13 @@ export default function Footer() {
               <i className="fa fa-youtube"></i>
               <i className="fa fa-linkedin"></i>
            </li>
-           <li><Link to="/" className="link">Home</Link></li>
-           <li><Link to="/artigos" className="link">Artigos</Link></li>
-           <li><Link to="/sobre" className="link">Sobre nós</Link></li>
           </ul>
+
+          <ul>
+            <li><Link to="/" className="link">Home</Link></li>
+            <li><Link to="/artigos" className="link">Artigos</Link></li>
+            <li><Link to="/sobre" className="link">Sobre nós</Link></li>
+           </ul>
         <Outlet/>
      </footer>
   );
